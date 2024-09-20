@@ -3,7 +3,7 @@ const Todo = require("../models/Todo");
 
 // Create a new todo
 exports.createTodo = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description  } = req.body;
   try {
     const newTodo = new Todo({
       title,
@@ -67,7 +67,7 @@ exports.deleteTodo = async (req, res) => {
   try {
     const todo = await Todo.findOneAndDelete(req.params.id);
     if (!todo) return res.status(404).json({ message: "Todo not found" });
-    res.status(404).json({ message: "Todo  Deleted" });
+    res.status(200).json({ message: "Todo  Deleted" });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
   }
