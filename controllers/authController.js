@@ -5,7 +5,7 @@ const User = require("../models/User");
 require("dotenv").config();
 
 // Register a new user
-exports.register = async (req, res) => {
+exports.register = async (req,  res) => {
   const { username, password } = req.body;
 
   try {
@@ -33,7 +33,7 @@ exports.login = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch)
-      return res.status(400).json({ message: "Invalid credentials" });
+      return res.status(400).json({ message: "Invalidekudwjehfbuwkehfb credentials" });
 
     const token = jwt.sign({ user: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
